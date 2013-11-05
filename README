@@ -1,0 +1,21 @@
+Nombre: Editor de imágenes para la prueba de funciones de procesamiento de imágenes.
+
+Autores:
+
+Descripción: Proyecto de la asignatura de Visión por Computador de cuarto curso del Grado en Ingeniería Informática.
+             
+             Realización de un programa para la implementación y pruebas de un conjunto de funciones de procesamiento
+             de imágenes vistas en la teoría de la asignatura. Implementada una interfaz gráfica usando un modelado 
+             clásico de los editores de imágenes.
+
+Parte 1:
+      Funciones implementadas:
+             - Mostrar la información de la imagen(Histogramas, brillo, contraste, rangos de intensidad y entropía).
+             - Usando la selección rectangular, copiar una región de la imagen en una nueva ventana.
+             - Mostrar el perfil de una linea en una imagen.
+             - Negativizar una imagen.
+             - Ecualizar una imagen.
+             - Umbralizar una imagen.
+             - Realizar transformaciones lienales por tramos de una imagen.
+             - Realizar la diferencia y el mapa de cambios entre dos imágenes de igual tamaño.
+             - Realizarle la corrección gamma de una imagen.
