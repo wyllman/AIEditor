@@ -41,7 +41,8 @@ public class BarraMenu extends JMenuBar {
 	//__________________
 	// MŽtodos pœblicos:
 		
-		
+	//-FIN------------------
+	
 	//______________________
 	// Manejadores pœblicos:
 	public JMenu getmArchivo_() {

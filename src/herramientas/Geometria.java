@@ -14,8 +14,8 @@ import java.util.ArrayList;
  *
  */
 public class Geometria {
-
-	
+	//______________________________________
+    // Atributos constantes predeterminados:
 	public class Punto {
 		private double x, y;
 
@@ -29,128 +29,108 @@ public class Geometria {
 
 		public void setY(double y) { this.y = y; }
 	}
-
-	//private VentanaPrincipal refVp; 
-
-	private boolean vMP; 		//si es true interpolacion vecino mas proximo si no bilineal
-
-	private int contadorDeFondo;
-
-	//public VentanaPrincipal getRefVp() { return refVp;	}
-	//public void setRefVp(VentanaPrincipal vp) {	this.refVp = vp;	}
-
-	public boolean isvMP() { return vMP; }
-	public void setvMP(boolean vMP) { this.vMP = vMP; }
-
-	public int getContadorDeFondo() { return contadorDeFondo; }
-	public void setContadorDeFondo(int contadorDeFondo) { 	this.contadorDeFondo = contadorDeFondo; }
-
-	//public OpGeom (VentanaPrincipal refvp) {
-	//	setRefVp(refvp);
-	//}
-
+	//-FIN---------------	
+	
+    //_______________
+	// Constructores:
+	
+	//-FIN------------------
+    
+	//__________________
+	// MŽtodos pœblicos:
 	public BufferedImage espejoHorizontal (BufferedImage laImgOrig) {
-		// FIXME:
 		int ancho = laImgOrig.getWidth();
 		int alto = laImgOrig.getHeight();
 		int tipo = laImgOrig.getType();
-		BufferedImage temp = new BufferedImage(ancho, alto, tipo);
+		BufferedImage imagenResultado = new BufferedImage(ancho, alto, tipo);
 		int colorNuevo;
 
-		for (int i = 0; i < alto; ++i)
+		for (int i = 0; i < alto; ++i) {
 			for (int j = 0; j < ancho; ++j) {
 				colorNuevo = new Color(laImgOrig.getRGB((ancho - 1) - j, i)).getRed();
-				temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+				imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 			}
-		return temp;
+		}
+		return imagenResultado;
 	}
 
 	public BufferedImage espejoVertical (BufferedImage laImgOrig) {
-		// FIXME:
 		int ancho = laImgOrig.getWidth();
 		int alto = laImgOrig.getHeight();
 		int tipo = laImgOrig.getType();
-		BufferedImage temp = new BufferedImage(ancho, alto, tipo);
-
+		BufferedImage imagenResultado = new BufferedImage(ancho, alto, tipo);
 		int colorNuevo;
 
 		for (int i = 0; i < alto; ++i)
 			for (int j = 0; j < ancho; ++j) {
 				colorNuevo = new Color(laImgOrig.getRGB(j, (alto - 1) - i)).getRed();
-				temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+				imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 			}
-		return temp;
+		return imagenResultado;
 	}
 
 	public BufferedImage traspuesta (BufferedImage laImgOrig) {
-		// FIXME:
 		int alto = laImgOrig.getWidth();
 		int ancho = laImgOrig.getHeight();
 		int tipo = laImgOrig.getType();
-		BufferedImage temp = new BufferedImage(ancho, alto, tipo);
-
+		BufferedImage imagenResultado = new BufferedImage(ancho, alto, tipo);
 		int colorNuevo;
 
 		for (int i = 0; i < alto; ++i)
 			for (int j = 0; j < ancho; ++j) {
 				colorNuevo = new Color(laImgOrig.getRGB(i, j)).getRed();
-				temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+				imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 			}
-		return temp;
+		return imagenResultado;
 	}
 
-	public BufferedImage rotar90 (BufferedImage laImgOrig) {	//90
-		// FIXME:
+	public BufferedImage rotar90 (BufferedImage laImgOrig) {
 		int alto = laImgOrig.getWidth();
 		int ancho = laImgOrig.getHeight();
 		int tipo = laImgOrig.getType();
-		BufferedImage temp = new BufferedImage(ancho, alto, tipo);
+		BufferedImage imagenResultado = new BufferedImage(ancho, alto, tipo);
 		int colorNuevo;
 
 		for (int i = 0; i < alto; ++i)
 			for (int j = 0; j < ancho; ++j) {
 				colorNuevo = new Color(laImgOrig.getRGB(i, (ancho - 1) - j)).getRed();
-				temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+				imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 			}
-		return temp;
+		return imagenResultado;
 	}
 
-	public BufferedImage rotar180 (BufferedImage laImgOrig) {		//180
-		// FIXME:
+	public BufferedImage rotar180 (BufferedImage laImgOrig) {
 		int ancho = laImgOrig.getWidth();
 		int alto = laImgOrig.getHeight();
 		int tipo = laImgOrig.getType();
-		BufferedImage temp = new BufferedImage(ancho, alto, tipo);
+		BufferedImage imagenResultado = new BufferedImage(ancho, alto, tipo);
 
 		int colorNuevo;
 
 		for (int i = 0; i < alto; ++i)
 			for (int j = 0; j < ancho; ++j) {
 				colorNuevo = new Color(laImgOrig.getRGB((ancho - 1) - j,(alto - 1) - i)).getRed();
-				temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+				imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 			}
-		return temp;
+		return imagenResultado;
 	}
 
-	public BufferedImage rotar270 (BufferedImage laImgOrig) {		//270
-		// FIXME:
+	public BufferedImage rotar270 (BufferedImage laImgOrig) {
 		int alto = laImgOrig.getWidth();
 		int ancho = laImgOrig.getHeight();
 		int tipo = laImgOrig.getType();
-		BufferedImage temp = new BufferedImage(ancho, alto, tipo);
-
+		BufferedImage imagenResultado = new BufferedImage(ancho, alto, tipo);
 		int colorNuevo;
 
 		for (int i = 0; i < alto; ++i)
 			for (int j = 0; j < ancho; ++j) {
 				colorNuevo = new Color(laImgOrig.getRGB((alto - 1) - i, j)).getRed();
-				temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+				imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 			}
-		return temp;
+		return imagenResultado;
 	}
 
 	public BufferedImage escalar (double anch, double alt, BufferedImage laImgOrig) {
-		// FIXME:
 		int ancho = laImgOrig.getWidth();
 		int alto = laImgOrig.getHeight();
 		int tipo = laImgOrig.getType();
@@ -158,30 +138,30 @@ public class Geometria {
 		alt /= 100;		//Paso a % el alto
 		alto *= alt;	//Calculamos el alto de la imagen
 		ancho *= anch;  //Calculamos el ancho de la imagen
-		BufferedImage temp = new BufferedImage(ancho, alto, tipo);
+		BufferedImage imagenResultado = new BufferedImage(ancho, alto, tipo);
 		int colorNuevo;
 		int jI = 0, iI = 0;
-		if (isvMP()) {
+		
+		if (isInterpolacionBilinear()) {
 			for (int i = 0; i < alto; ++i)
 				for (int j = 0; j < ancho; ++j) {
 					jI = (int)vecinoMasCercano(j/anch, i/alt, laImgOrig).getX();
 					iI = (int)vecinoMasCercano(j/anch, i/alt, laImgOrig).getY();
 					colorNuevo = new Color(laImgOrig.getRGB(jI,iI)).getRed();
-					temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+					imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 				}
 		}
 		else {
 			for (int i = 0; i < alto; ++i)
 				for (int j = 0; j < ancho; ++j) {
 					colorNuevo = interBiLineal(j/anch, i/alt, laImgOrig);
-					temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+					imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 				}
 		}
-		return temp;
+		return imagenResultado;
 	}
 
 	public BufferedImage rotar (double grados, int opc, BufferedImage laImgOrig) {
-		// FIXME:
 		int ancho = laImgOrig.getWidth();
 		int alto = laImgOrig.getHeight();
 		int tipo = laImgOrig.getType();
@@ -189,8 +169,7 @@ public class Geometria {
 		grados = Math.toRadians(grados);
 		ArrayList<Punto> esquinas = rotarEsquina(grados, laImgOrig); 
 		Punto dimension = anchoAlto(esquinas);
-		BufferedImage temp = new BufferedImage((int)dimension.getX() + 1, (int)dimension.getY() + 1, tipo);
-
+		BufferedImage imagenResultado = new BufferedImage((int)dimension.getX() + 1, (int)dimension.getY() + 1, tipo);
 		int colorNuevo;
 
 		Punto oPrima = calcularIzquierdaSuperior(esquinas);
@@ -204,7 +183,7 @@ public class Geometria {
 					mapInverso = transformacionInversa(grados, (int)traslado.getX(), (int)traslado.getY());
 					if ((mapInverso.getX() < ancho) && (mapInverso.getX() >= 0) && (mapInverso.getY() < alto) && (mapInverso.getY() >= 0)) {
 						colorNuevo = new Color(laImgOrig.getRGB((int)mapInverso.getX(), (int)mapInverso.getY())).getRed();
-						temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+						imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 					}
 					else
 						setContadorDeFondo(getContadorDeFondo() + 1);
@@ -217,7 +196,7 @@ public class Geometria {
 					mapInverso = transformacionInversa(grados, (int)traslado.getX(), (int)traslado.getY());
 					if ((mapInverso.getX() < ancho) && (mapInverso.getX() >= 0) && (mapInverso.getY() < alto) && (mapInverso.getY() >= 0)) { 
 						colorNuevo = new Color(laImgOrig.getRGB((int)vecinoMasCercano(mapInverso.getX(), mapInverso.getY(), laImgOrig).getX(), (int)vecinoMasCercano(mapInverso.getX(), mapInverso.getY(), laImgOrig).getY())).getRed();
-						temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+						imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 					}
 					else 
 						setContadorDeFondo(getContadorDeFondo() + 1);
@@ -231,19 +210,16 @@ public class Geometria {
 					mapInverso = transformacionInversa(grados, (int)traslado.getX(), (int)traslado.getY());
 					if ((mapInverso.getX() < ancho) && (mapInverso.getX() >= 0) && (mapInverso.getY() < alto) && (mapInverso.getY() >= 0)) {
 						colorNuevo = interBiLineal(mapInverso.getX(), mapInverso.getY(), laImgOrig);
-						temp.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
+						imagenResultado.setRGB(j, i, new Color (colorNuevo, colorNuevo, colorNuevo).getRGB());
 					}
 					else
 						setContadorDeFondo(getContadorDeFondo() + 1);
 				}
 		}
-
-
-		return temp;
+		return imagenResultado;
 	}
 
 	public Point vecinoMasCercano (double j, double i, BufferedImage laImgOrig) {
-		// FIXME:
 		double jI = Math.round(j);
 		double iI = Math.round(i);
 		int ancho =laImgOrig.getWidth();
@@ -257,7 +233,6 @@ public class Geometria {
 		return temp;
 	}
 	public int interBiLineal (double j, double i, BufferedImage laImgOrig) {
-		// FIXME:
 		int ancho = laImgOrig.getWidth();
 		int alto = laImgOrig.getHeight();
 
@@ -345,6 +320,26 @@ public class Geometria {
 	public Punto transformacionInversa (double grados, int x, int y) {
 		return new Punto((Math.cos(grados) * x + Math.sin(grados) * y),(-Math.sin(grados) * x + Math.cos(grados) * y));
 	}
+	//-FIN------------------
+	
+	//______________________
+	// Manejadores pœblicos:
+	public boolean isInterpolacionBilinear () { return interpolacionBilinear_; }
+	public void setInterpolacionBilinear (boolean interpolacionBilinear) { interpolacionBilinear_ = interpolacionBilinear; }
+
+	public int getContadorDeFondo() { return contadorDeFondo_; }
+	public void setContadorDeFondo(int contadorDeFondo) { 	this.contadorDeFondo_ = contadorDeFondo; }
+	//-FIN--------------------
+	
+	//____________________
+	// Atributos privados:
+	private boolean interpolacionBilinear_; 		//si es true interpolacion vecino mas proximo si no bilineal
+	private int contadorDeFondo_;
+
+
+
+
+	
 	
 	
 	
