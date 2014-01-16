@@ -689,7 +689,9 @@ public class EventosBarraMenu {
 		setAccEscRot_(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
+				  //new PanelUmbralGamma(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_());
+				}
 			}
 		});
 		
