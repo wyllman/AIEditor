@@ -99,7 +99,7 @@ public class Geometria {
 		return temp;
 	}
 
-	public BufferedImage rotarDerecha (BufferedImage laImgOrig) {	//90
+	public BufferedImage rotar90 (BufferedImage laImgOrig) {	//90
 		// FIXME:
 		int alto = laImgOrig.getWidth();
 		int ancho = laImgOrig.getHeight();
@@ -115,7 +115,7 @@ public class Geometria {
 		return temp;
 	}
 
-	public BufferedImage rotarAbajo (BufferedImage laImgOrig) {		//180
+	public BufferedImage rotar180 (BufferedImage laImgOrig) {		//180
 		// FIXME:
 		int ancho = laImgOrig.getWidth();
 		int alto = laImgOrig.getHeight();
@@ -132,7 +132,7 @@ public class Geometria {
 		return temp;
 	}
 
-	public BufferedImage rotarIzquierda (BufferedImage laImgOrig) {		//270
+	public BufferedImage rotar270 (BufferedImage laImgOrig) {		//270
 		// FIXME:
 		int alto = laImgOrig.getWidth();
 		int ancho = laImgOrig.getHeight();

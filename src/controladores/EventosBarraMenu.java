@@ -10,6 +10,7 @@
 package controladores;
 
 import herramientas.Edicion;
+import herramientas.Geometria;
 import herramientas.TransfPunto;
 import interfazGrafica.PanelBriCont;
 import interfazGrafica.PanelGraf256;
@@ -484,9 +485,9 @@ public class EventosBarraMenu {
 				  try {
 					getLaVentTmp_().getLaZonaTrab_().getVecVentanas_()
 					  .lastElement().setSelected(true);
-				} catch (PropertyVetoException e) {
+				  } catch (PropertyVetoException e) {
 					e.printStackTrace();
-				}
+				  }
 				}
 			}
 		});
@@ -580,37 +581,109 @@ public class EventosBarraMenu {
 		setAccEspVert_(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				Geometria herramientas = new Geometria();
+				BufferedImage laImagen = null;
+				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
+				   laImagen = herramientas.espejoVertical(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_().imagenActiva());
+						     
+				  getLaVentTmp_().getLaZonaTrab_().nuevaVentanaInterna(10, 10, laImagen);
+				  try {
+					getLaVentTmp_().getLaZonaTrab_().getVecVentanas_()
+					  .lastElement().setSelected(true);
+				  } catch (PropertyVetoException e) {
+					e.printStackTrace();
+				  }
+				}
 			}
 		});
 		setAccEspHorz_(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				Geometria herramientas = new Geometria();
+				BufferedImage laImagen = null;
+				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
+				   laImagen = herramientas.espejoHorizontal(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_().imagenActiva());
+						     
+				  getLaVentTmp_().getLaZonaTrab_().nuevaVentanaInterna(10, 10, laImagen);
+				  try {
+					getLaVentTmp_().getLaZonaTrab_().getVecVentanas_()
+					  .lastElement().setSelected(true);
+				  } catch (PropertyVetoException e) {
+					e.printStackTrace();
+				  }
+				}
 			}
 		});
 		setAccTraspuesta_(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				Geometria herramientas = new Geometria();
+				BufferedImage laImagen = null;
+				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
+				   laImagen = herramientas.traspuesta(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_().imagenActiva());
+						     
+				  getLaVentTmp_().getLaZonaTrab_().nuevaVentanaInterna(10, 10, laImagen);
+				  try {
+					getLaVentTmp_().getLaZonaTrab_().getVecVentanas_()
+					  .lastElement().setSelected(true);
+				  } catch (PropertyVetoException e) {
+					e.printStackTrace();
+				  }
+				}
 			}
 		});
 		setAccRotacion90_(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				Geometria herramientas = new Geometria();
+				BufferedImage laImagen = null;
+				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
+				   laImagen = herramientas.rotar90(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_().imagenActiva());
+						     
+				  getLaVentTmp_().getLaZonaTrab_().nuevaVentanaInterna(10, 10, laImagen);
+				  try {
+					getLaVentTmp_().getLaZonaTrab_().getVecVentanas_()
+					  .lastElement().setSelected(true);
+				  } catch (PropertyVetoException e) {
+					e.printStackTrace();
+				  }
+				}
 			}
 		});
 		setAccRotacion180_(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				Geometria herramientas = new Geometria();
+				BufferedImage laImagen = null;
+				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
+				   laImagen = herramientas.rotar180(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_().imagenActiva());
+						     
+				  getLaVentTmp_().getLaZonaTrab_().nuevaVentanaInterna(10, 10, laImagen);
+				  try {
+					getLaVentTmp_().getLaZonaTrab_().getVecVentanas_()
+					  .lastElement().setSelected(true);
+				  } catch (PropertyVetoException e) {
+					e.printStackTrace();
+				  }
+				}
 			}
 		});
 		setAccRotacion270_(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				Geometria herramientas = new Geometria();
+				BufferedImage laImagen = null;
+				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
+				   laImagen = herramientas.rotar270(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_().imagenActiva());
+						     
+				  getLaVentTmp_().getLaZonaTrab_().nuevaVentanaInterna(10, 10, laImagen);
+				  try {
+					getLaVentTmp_().getLaZonaTrab_().getVecVentanas_()
+					  .lastElement().setSelected(true);
+				  } catch (PropertyVetoException e) {
+					e.printStackTrace();
+				  }
+				}
 			}
 		});
 		setAccEscRot_(new ActionListener() {
