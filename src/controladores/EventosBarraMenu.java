@@ -22,6 +22,7 @@ import interfazGrafica.PanelPerfil;
 import interfazGrafica.PanelDiferencia;
 import interfazGrafica.PanelUmbralGamma;
 import interfazGrafica.PanelTransfHistograma;
+import interfazGrafica.PanelRotacionEscalado;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -690,7 +691,7 @@ public class EventosBarraMenu {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
-				  // TODO:
+				  new PanelRotacionEscalado ();
 				  //new PanelUmbralGamma(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_());
 				}
 			}
