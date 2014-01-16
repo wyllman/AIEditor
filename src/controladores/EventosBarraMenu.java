@@ -191,6 +191,48 @@ public class EventosBarraMenu {
 	public void setAccTrnsHist_(ActionListener accTrnsHist_) {
 		this.accTrnsHist_ = accTrnsHist_;
 	}
+	public ActionListener getAccEspVert_() {
+		return accEspVert_;
+	}
+	public void setAccEspVert_(ActionListener accEspVert_) {
+		this.accEspVert_ = accEspVert_;
+	}
+	public ActionListener getAccEspHorz_() {
+		return accEspHorz_;
+	}
+	public void setAccEspHorz_(ActionListener accEspHorz_) {
+		this.accEspHorz_ = accEspHorz_;
+	}
+	public ActionListener getAccTraspuesta_() {
+		return accTraspuesta_;
+	}
+	public void setAccTraspuesta_(ActionListener accTraspesta_) {
+		this.accTraspuesta_ = accTraspesta_;
+	}
+	public ActionListener getAccRotacion90_() {
+		return accRotacion90_;
+	}
+	public void setAccRotacion90_(ActionListener accRotacion90_) {
+		this.accRotacion90_ = accRotacion90_;
+	}
+	public ActionListener getAccRotacion180_() {
+		return accRotacion180_;
+	}
+	public void setAccRotacion180_(ActionListener accRotacion180_) {
+		this.accRotacion180_ = accRotacion180_;
+	}
+	public ActionListener getAccRotacion270_() {
+		return accRotacion270_;
+	}
+	public void setAccRotacion270_(ActionListener accRotacion270_) {
+		this.accRotacion270_ = accRotacion270_;
+	}
+	public ActionListener getAccEscRot_() {
+		return accEscRot_;
+	}
+	public void setAccEscRot_(ActionListener accEscRot_) {
+		this.accEscRot_ = accEscRot_;
+	}
 	//--------------------
 	
 
@@ -223,6 +265,18 @@ public class EventosBarraMenu {
 	private ActionListener accUmbGamma_;
 	private ActionListener accTrnsHist_;
 
+	//   - Acciones para el menú de operaciones geométricas
+	private ActionListener accEspVert_;
+	private ActionListener accEspHorz_;
+	private ActionListener accTraspuesta_;
+	private ActionListener accRotacion90_;
+	private ActionListener accRotacion180_;
+	private ActionListener accRotacion270_;
+	private ActionListener accEscRot_;
+
+
+
+
 
 	//   - Acciones para el menú ayuda
 	private ActionListener accSalir_;
@@ -254,7 +308,6 @@ public class EventosBarraMenu {
 						   getLaVentTmp_().getLaZonaTrab_()
 						                  .getVecVentanas_().get(indice).setSelected(true);
 					   } catch (PropertyVetoException e1) {
-						// TODO Auto-generated catch block
 						   e1.printStackTrace();
 					   }
 					  
@@ -277,12 +330,10 @@ public class EventosBarraMenu {
 			}
 			@Override
 			public void menuDeselected(MenuEvent arg0) {
-				// TODO Auto-generated method stub
 				getLaVentTmp_().getElMenu_().getmVentAbiertas_().removeAll();
 			}
 			@Override
 			public void menuCanceled(MenuEvent arg0) {
-				// TODO Auto-generated method stub
 				getLaVentTmp_().getElMenu_().getmVentAbiertas_().removeAll();
 			}
 		});
@@ -434,7 +485,6 @@ public class EventosBarraMenu {
 					getLaVentTmp_().getLaZonaTrab_().getVecVentanas_()
 					  .lastElement().setSelected(true);
 				} catch (PropertyVetoException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				}
@@ -454,7 +504,6 @@ public class EventosBarraMenu {
 			    try {
 					getLaVentTmp_().getLaZonaTrab_().getVecVentanas_().lastElement().setSelected(true);
 				} catch (PropertyVetoException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			  }
@@ -524,6 +573,50 @@ public class EventosBarraMenu {
 			  if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
 			    new PanelTransfHistograma(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_());
 			  }
+			}
+		});
+		
+		// Inicializar las acciones del menú de operaciones geométricas
+		setAccEspVert_(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		});
+		setAccEspHorz_(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		});
+		setAccTraspuesta_(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		});
+		setAccRotacion90_(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		});
+		setAccRotacion180_(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		});
+		setAccRotacion270_(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		});
+		setAccEscRot_(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
 			}
 		});
 		

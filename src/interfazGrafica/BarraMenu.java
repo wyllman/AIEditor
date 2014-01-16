@@ -206,6 +206,54 @@ public class BarraMenu extends JMenuBar {
 	public void setMiPanelTransHistog_(JMenuItem miPanelTransHistog_) {
 		this.miPanelTransHistog_ = miPanelTransHistog_;
 	}
+	public JMenu getmOpGeometricas_() {
+		return mOpGeometricas_;
+	}
+	public void setmOpGeometricas_(JMenu mOpGeometricas_) {
+		this.mOpGeometricas_ = mOpGeometricas_;
+	}
+	public JMenuItem getMiEspejoVert_() {
+		return miEspejoVert_;
+	}
+	public void setMiEspejoVert_(JMenuItem miEspejoVert_) {
+		this.miEspejoVert_ = miEspejoVert_;
+	}
+	public JMenuItem getMiEspejoHorz_() {
+		return miEspejoHorz_;
+	}
+	public void setMiEspejoHorz_(JMenuItem miEspejoHorz_) {
+		this.miEspejoHorz_ = miEspejoHorz_;
+	}
+	public JMenuItem getMiTraspuesta_() {
+		return miTraspuesta_;
+	}
+	public void setMiTraspuesta_(JMenuItem miTraspuesta_) {
+		this.miTraspuesta_ = miTraspuesta_;
+	}
+	public JMenuItem getMiRotacion90_() {
+		return miRotacion90_;
+	}
+	public void setMiRotacion90_(JMenuItem miRotacion90_) {
+		this.miRotacion90_ = miRotacion90_;
+	}
+	public JMenuItem getMiRotacion180_() {
+		return miRotacion180_;
+	}
+	public void setMiRotacion180_(JMenuItem miRotacion180_) {
+		this.miRotacion180_ = miRotacion180_;
+	}
+	public JMenuItem getMiRotacion270_() {
+		return miRotacion270_;
+	}
+	public void setMiRotacion270_(JMenuItem miRotacion270_) {
+		this.miRotacion270_ = miRotacion270_;
+	}
+	public JMenuItem getMiPanelEscRot_() {
+		return miPanelEscRot_;
+	}
+	public void setMiPanelEscRot_(JMenuItem miPanelEscRot_) {
+		this.miPanelEscRot_ = miPanelEscRot_;
+	}
 	//-FIN--------------------
 		
 
@@ -239,6 +287,15 @@ public class BarraMenu extends JMenuBar {
     private JMenuItem miPanelUmbralGamma_;
     private JMenuItem miPanelTransHistog_;
     
+    private JMenu mOpGeometricas_;
+    private JMenuItem miEspejoVert_;
+    private JMenuItem miEspejoHorz_;
+    private JMenuItem miTraspuesta_;
+    private JMenuItem miRotacion90_;
+    private JMenuItem miRotacion180_;
+    private JMenuItem miRotacion270_;
+    private JMenuItem miPanelEscRot_;
+
 
 
 	private JMenu mAyuda_;
@@ -376,6 +433,44 @@ public class BarraMenu extends JMenuBar {
 		getMiPanelTransHistog_().addActionListener(getLosEventos_().getAccTrnsHist_());
 		getmTransformar_().add(getMiPanelTransHistog_());
 		
+		// Inicializar el menú "Operaciones Geométricas."
+		setmOpGeometricas_(new JMenu("Op. Geométricas"));
+		getmOpGeometricas_().setBackground(COL_FONDO);
+		
+		setMiEspejoVert_(new JMenuItem("Espejo Vertical"));
+		getMiEspejoVert_().addActionListener(getLosEventos_().getAccEspVert_());
+		getmOpGeometricas_().add(getMiEspejoVert_());
+		
+		setMiEspejoHorz_(new JMenuItem("Espejo Horizontal"));
+		getMiEspejoHorz_().addActionListener(getLosEventos_().getAccEspHorz_());
+		getmOpGeometricas_().add(getMiEspejoHorz_());
+		
+		getmOpGeometricas_().add(new JSeparator());
+		
+		setMiTraspuesta_(new JMenuItem("Traspuesta"));
+		getMiTraspuesta_().addActionListener(getLosEventos_().getAccTraspuesta_());
+		getmOpGeometricas_().add(getMiTraspuesta_());
+		
+		getmOpGeometricas_().add(new JSeparator());
+		
+		setMiRotacion90_(new JMenuItem("Rotación 90º"));
+		getMiRotacion90_().addActionListener(getLosEventos_().getAccRotacion90_());
+		getmOpGeometricas_().add(getMiRotacion90_());
+		
+		setMiRotacion180_(new JMenuItem("Rotación 180º"));
+		getMiRotacion180_().addActionListener(getLosEventos_().getAccRotacion180_());
+		getmOpGeometricas_().add(getMiRotacion180_());
+		
+		setMiRotacion270_(new JMenuItem("Rotación 270º"));
+		getMiRotacion270_().addActionListener(getLosEventos_().getAccRotacion270_());
+		getmOpGeometricas_().add(getMiRotacion270_());
+		
+		getmOpGeometricas_().add(new JSeparator());
+		
+		setMiPanelEscRot_(new JMenuItem("Panel Escala/Rotación"));
+		getMiPanelEscRot_().addActionListener(getLosEventos_().getAccEscRot_());
+		getmOpGeometricas_().add(getMiPanelEscRot_());
+		
 		
 		// Inicializar el menú "Ayuda."
 		setmAyuda_(new JMenu("Ayuda."));
@@ -399,6 +494,7 @@ public class BarraMenu extends JMenuBar {
 		this.add(getmInform_());
 		this.add(getmEdicion_());
 		this.add(getmTransformar_());
+		this.add(getmOpGeometricas_());
 		this.add(getmAyuda_());
 		
 		
