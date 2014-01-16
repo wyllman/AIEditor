@@ -30,6 +30,7 @@ import javax.swing.border.LineBorder;
  * @author tenerent
  *
  */
+@SuppressWarnings("serial")
 public class PanelTransfLin extends JDialog {
   //______________________________________
   // Atributos constantes predeterminados:
@@ -369,7 +370,6 @@ public class PanelTransfLin extends JDialog {
 		  try {
 			getLaVentana_().getLaRefZonaTrabajo_().getVecVentanas_().lastElement().setSelected(true);
 		  } catch (PropertyVetoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		  }
 		  dispose ();

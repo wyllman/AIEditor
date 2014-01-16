@@ -45,8 +45,8 @@ public class EventosBarraMenu {
 			                          + " ingenier’a inform‡tica.\n"
 			                          + " \n"
 			                          + " Los autores de este proyecto son: \n"
-			                          + "    - ... \n"
-			                          + "    - ... \n";
+			                          + "    - Maurizio Rend—n Mattogno \n"
+			                          + "    - Guillermo Rodr’guez Pardo \n";
 	//---------------	
 	
     //_______________
@@ -690,6 +690,7 @@ public class EventosBarraMenu {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
+				  // TODO:
 				  //new PanelUmbralGamma(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_());
 				}
 			}
@@ -698,14 +699,12 @@ public class EventosBarraMenu {
 		setAccAyuda_(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-		       //System.out.println("Ayuda - Menœ ’tem.");
 		       new VentanaAyuda();
 			}
 		});
 		setAccAutor_(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-		       //System.out.println("Autores - Menœ ’tem.");
 		       new VentanaAyuda("Autores.", TEXTO_AUTORES);
 			}
 		});

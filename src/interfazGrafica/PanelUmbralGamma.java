@@ -28,6 +28,7 @@ import javax.swing.event.ChangeListener;
  * @author tenerent
  *
  */
+@SuppressWarnings("serial")
 public class PanelUmbralGamma extends JDialog {
   //______________________________________
   // Atributos constantes predeterminados:

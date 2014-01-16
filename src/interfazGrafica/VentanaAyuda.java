@@ -25,13 +25,26 @@ public class VentanaAyuda extends JDialog {
 	
 	static final int POS_X = 100;
 	static final int POS_Y = 100;
-	static final int ANCHO_VENT = 400;
-	static final int ALTO_VENT = 200;
+	static final int ANCHO_VENT = 550;
+	static final int ALTO_VENT = 400;
 	static final String TITULO = "Ayuda al usuario.";
 	static final String TEXTO = " + Este programa ha sido realizado para el visionado y  \n"
-			                  + "      la edici—n de im‡genes.\n"
+			                  + "      la edici—n de im‡genes, en escala de grises.\n"
 			                  + " \n"
+			                  + " Funcionalidades:\n"
+			                  + "    - Menœ Archivo:\n"
+			                  + "       - Cargar una archivo de tipo imagen (JPG, PNG, BMP, ...) \n"
+			                  + "       - Guardar una imagen a un archivo de tipo .PNG \n"
+			                  + "       - Acceder a una lista de las im‡genes abiertas por el programa, \n"
+			                  + "         para poder darles el foco.\n"
 			                  + " \n"
+			                  + "    - Menœ de Informaci—n de imagen:\n"
+			                  + "       - Abrir una ventana nueva con la informaci—n gr‡fica del histograma\n"
+			                  + "         absoluto o abrir otra del acumulado.\n"
+			                  + "       - Acceder a un panel que contiene los dos histograma y muestra informaci—n\n"
+			                  + "         adicional.\n"
+			                  + "       - Acceder a un panel que nos ofrece la posibilidad de ver el histograma o \n"
+			                  + "         perfil de una l’nea definida sobre una imagen.\n"
 			                  + " \n";
 		
     //_______________

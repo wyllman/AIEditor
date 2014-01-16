@@ -31,6 +31,7 @@ import javax.swing.event.ChangeListener;
  * @author tenerent
  *
  */
+@SuppressWarnings("serial")
 public class PanelDiferencia extends JDialog{
   //______________________________________
   // Atributos constantes predeterminados:
@@ -513,7 +514,6 @@ public class PanelDiferencia extends JDialog{
 		    try {
 			  getLaVentAct_().getLaRefZonaTrabajo_().getVecVentanas_().lastElement().setSelected(true);
 		    } catch (PropertyVetoException e) {
-			  // TODO Auto-generated catch block
 			  e.printStackTrace();
 		    }
 		    dispose ();

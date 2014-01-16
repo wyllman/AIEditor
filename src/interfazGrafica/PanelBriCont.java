@@ -20,6 +20,7 @@ import javax.swing.event.ChangeListener;
 import herramientas.Histograma;
 import herramientas.TransfPunto;
 
+@SuppressWarnings("serial")
 public class PanelBriCont extends JDialog {
 	//______________________________________
 	// Atributos constantes predeterminados:
@@ -276,7 +277,6 @@ public class PanelBriCont extends JDialog {
 		  try {
 			getLaVentana_().getLaRefZonaTrabajo_().getVecVentanas_().lastElement().setSelected(true);
 		  } catch (PropertyVetoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		  }
 		  dispose ();

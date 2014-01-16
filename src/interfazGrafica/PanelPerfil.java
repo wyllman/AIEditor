@@ -3,8 +3,6 @@
  */
 package interfazGrafica;
 
-import herramientas.Histograma;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -18,19 +16,17 @@ import java.awt.image.BufferedImage;
 import java.util.Vector;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.LineBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 /**
  * @author tenerent
  *
  */
+@SuppressWarnings("serial")
 public class PanelPerfil extends JDialog {
   //______________________________________
   // Atributos constantes predeterminados:

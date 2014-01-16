@@ -27,6 +27,7 @@ import javax.swing.border.LineBorder;
  * @author tenerent
  *
  */
+@SuppressWarnings("serial")
 public class PanelTransfHistograma extends JDialog{
   //______________________________________
   // Atributos constantes predeterminados:
@@ -381,7 +382,6 @@ public class PanelTransfHistograma extends JDialog{
 		  try {
 			getLaVentanaActual_().getLaRefZonaTrabajo_().getVecVentanas_().lastElement().setSelected(true);
 		  } catch (PropertyVetoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		  }
 		  dispose ();
@@ -401,10 +401,6 @@ public class PanelTransfHistograma extends JDialog{
 		}
 	  });
     
-    
-    
-    
-    
     add(getElPanelHistograma_());
     add(getElPanelImagenOriginal_());
     add(getElPanelImagenSec_());
@@ -414,7 +410,6 @@ public class PanelTransfHistograma extends JDialog{
     add(getElBotonIRes_());
     add(getElBotAceptar_());
     add(getElBotCancelar_());
-    //TODO
     
     calcularEscala01();
     calcularEscala02();
@@ -442,10 +437,9 @@ public class PanelTransfHistograma extends JDialog{
 		  }
 		  setLaEscala01_(escala);
 	    }
-	  }
-	  
-	  
-	  private void calcularEscala02 () {
+   }
+  
+   private void calcularEscala02 () {
 			int ancho;
 		    int alto;
 		    double escala;
@@ -479,8 +473,6 @@ public class PanelTransfHistograma extends JDialog{
 		}
 	  }
  
-	  
-	  
 	  private void siguienteVentana () {
 			int indiceAct;
 			int indiceFinal = -1;
