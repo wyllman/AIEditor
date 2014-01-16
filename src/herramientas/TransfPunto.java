@@ -223,7 +223,7 @@ public class TransfPunto {
     int minimo = elHistograma.valorMinimo();
     int maximo = elHistograma.valorMaximo();
     int[] acumulativo = elHistograma.calcularHistogramaAcm();
-    double factor = ((maximo - minimo) * 1.0) / (laImagen.getWidth() * laImagen.getHeight());
+    double factor = ((255) * 1.0) / (laImagen.getWidth() * laImagen.getHeight());
     
     if (laImagen != null) {
       laTabla = getLasHerramientas_().new TablaTransf ();
