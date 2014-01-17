@@ -148,7 +148,7 @@ public class Geometria {
 		return imagenResultado;
 	}
 
-	public BufferedImage rotar (double grados, int opc, BufferedImage laImgOrig) {
+	public BufferedImage rotar (double grados, boolean rotYPintar, BufferedImage laImgOrig) {
 		int ancho = laImgOrig.getWidth();
 		int alto = laImgOrig.getHeight();
 		int tipo = laImgOrig.getType();
@@ -164,7 +164,7 @@ public class Geometria {
 		Punto traslado;
 		Punto mapInverso;
 
-		if (opc == 0) {		//rotar y pintar
+		if (rotYPintar) {		//rotar y pintar
 			for (int i = 0; i <= dimension.getPosY(); ++i)
 				for (int j = 0; j <= dimension.getPosX(); ++j) {
 					traslado = trasladar(oPrima, new Punto ((double)j, (double)i));
@@ -172,12 +172,13 @@ public class Geometria {
 					if ((mapInverso.getPosX() < ancho) && (mapInverso.getPosX() >= 0) && (mapInverso.getPosY() < alto) && (mapInverso.getPosY() >= 0)) {
 						elColor = new Color(laImgOrig.getRGB((int)mapInverso.getPosX(), (int)mapInverso.getPosY()));
 						imagenResultado.setRGB(j, i, elColor.getRGB());
-					}
-					else
+					} else {
 						setContadorDeFondo(getContadorDeFondo() + 1);
+					}
 				}
-		}
-		else if (opc == 1) {		//rotar e interpolar con vecino mas proximo
+		} else {
+			if (!(isInterpolacionBilinear())) {		//rotar e interpolar con vecino mas proximo
+		
 			for (int i = 0; i <= dimension.getPosY(); ++i)
 				for (int j = 0; j <= dimension.getPosX(); ++j) {
 					traslado = trasladar(oPrima, new Punto ((double)j, (double)i));
@@ -185,13 +186,11 @@ public class Geometria {
 					if ((mapInverso.getPosX() < ancho) && (mapInverso.getPosX() >= 0) && (mapInverso.getPosY() < alto) && (mapInverso.getPosY() >= 0)) { 
 						elColor = new Color(laImgOrig.getRGB((int)vecinoMasCercano(mapInverso.getPosX(), mapInverso.getPosY(), laImgOrig).getX(), (int)vecinoMasCercano(mapInverso.getPosX(), mapInverso.getPosY(), laImgOrig).getY()));
 						imagenResultado.setRGB(j, i, elColor.getRGB());
-					}
-					else 
+					} else { 
 						setContadorDeFondo(getContadorDeFondo() + 1);
+					}
 				}
-		}
-
-		else if (opc == 2) {		//rotar e interpolacion bilineal
+		  } else {		//rotar e interpolacion bilineal
 			for (int i = 0; i <= dimension.getPosY(); ++i)
 				for (int j = 0; j <= dimension.getPosX(); ++j) {
 					traslado = trasladar(oPrima, new Punto ((double)j, (double)i));
@@ -200,10 +199,11 @@ public class Geometria {
 						nivelGris = interBiLineal(mapInverso.getPosX(), mapInverso.getPosY(), laImgOrig);
 						elColor = new Color (nivelGris, nivelGris, nivelGris);
 						imagenResultado.setRGB(j, i, elColor.getRGB());
-					}
-					else
+					} else {
 						setContadorDeFondo(getContadorDeFondo() + 1);
+					}
 				}
+		  }
 		}
 		return imagenResultado;
 	}

@@ -691,7 +691,7 @@ public class EventosBarraMenu {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_() != null) {
-				  new PanelRotacionEscalado ();
+				  new PanelRotacionEscalado (getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_());
 				  //new PanelUmbralGamma(getLaVentTmp_().getLaZonaTrab_().getLaVentanaIntActual_());
 				}
 			}

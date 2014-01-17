@@ -1,10 +1,13 @@
 package interfazGrafica;
 
+import herramientas.Geometria;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -25,7 +28,8 @@ public class PanelRotacionEscalado extends JDialog {
 
   //_______________
   // Constructores:
-  public PanelRotacionEscalado () {
+  public PanelRotacionEscalado (VentanaInterna laVent) {
+	  setLaVentana_(laVent);
 	  inicializar();
   }
   //-FIN------------------
@@ -180,17 +184,27 @@ public class PanelRotacionEscalado extends JDialog {
   public void setElLabelRotarPintar_(JLabel elLabelRotarPintar_) {
 	this.elLabelRotarPintar_ = elLabelRotarPintar_;
   }
-  public VentanaInterna getLaVentanaAct_() {
-	return laVentanaAct_;
+  public VentanaInterna getLaVentana_() {
+	return laVentana_;
   }
-  public void setLaVentanaAct_(VentanaInterna laVentanaAct_) {
-	this.laVentanaAct_ = laVentanaAct_;
+  public void setLaVentana_(VentanaInterna laVentana_) {
+	this.laVentana_ = laVentana_;
+  }
+  public Geometria getLasHerramientas_() {
+	return lasHerramientas_;
+  }
+  public void setLasHerramientas_(Geometria lasHerramientas_) {
+	this.lasHerramientas_ = lasHerramientas_;
   }
   //-FIN-------------------
 
   //____________________
   // Atributos privados:
   private BufferedImage laImagenResultado_;
+  private VentanaInterna laVentana_;
+  private Geometria lasHerramientas_;
+
+
 
   private JLabel elLabelInterpolacion_;
   private JRadioButton elBotonVMC_;
@@ -222,7 +236,6 @@ public class PanelRotacionEscalado extends JDialog {
   private JButton aceptar_;
   private JButton cancelar_;
   
-  private VentanaInterna laVentanaAct_;
   //-FIN------------------
 
   //__________________
@@ -230,6 +243,7 @@ public class PanelRotacionEscalado extends JDialog {
   private void inicializar () {
 	setLayout(null);
 	setSize(525, 260);
+	setLasHerramientas_(new Geometria());
 	
 	setElLabelInterpolacion_(new JLabel(" Interpolacion: "));
 	getElLabelInterpolacion_().setLocation(ANCHO_BORD, ANCHO_BORD);
@@ -245,11 +259,13 @@ public class PanelRotacionEscalado extends JDialog {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 		  if (getElBotonVMC_().isSelected()) {
-		    getElBotonBilineal_().setSelected(false); 
+		    getElBotonBilineal_().setSelected(false);
+		    getLasHerramientas_().setInterpolacionBilinear(false);
 		  }
 		}
 	});
     getElBotonVMC_().setSelected(true);
+    getLasHerramientas_().setInterpolacionBilinear(false);
     add(getElBotonVMC_());
     
     setElBotonBilineal_(new JRadioButton("Bilineal"));
@@ -262,6 +278,7 @@ public class PanelRotacionEscalado extends JDialog {
 		public void actionPerformed(ActionEvent arg0) {
 		  if (getElBotonBilineal_().isSelected()) {
 		    getElBotonVMC_().setSelected(false); 
+		    getLasHerramientas_().setInterpolacionBilinear(true);
 		  }
 		}
 	});
@@ -396,9 +413,21 @@ public class PanelRotacionEscalado extends JDialog {
      getElBotonAceptar_().addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-		  getLaVentanaAct_().getLaRefZonaTrabajo_().nuevaVentanaInterna(10, 10, getLaImagenResultado_());
+		  if (getElBotonEscalado_().isSelected()) {
+			  setLaImagenResultado_(getLasHerramientas_().escalar(getElSliderX_().getValue()
+					                                             , getElSliderY_().getValue()
+					                                             , getLaVentana_().imagenActiva()));
+		  } else if (getElBotonRotacion_().isSelected()) {
+		      setLaImagenResultado_(getLasHerramientas_().rotar(getElSliderGrados_().getValue()
+		    		                                           , getElBotonRotarPintar_().isSelected()
+		    		                                           , getLaVentana_().imagenActiva()));
+		  }
+		  getLaVentana_().getLaRefZonaTrabajo_().nuevaVentanaInterna(10, 10, getLaImagenResultado_());
+		  getLaVentana_().getLaRefZonaTrabajo_()
+		     .getVecVentanas_().lastElement()
+		     .getElHistograma_().getElHistograma_()[0] -= getLasHerramientas_().getContadorDeFondo();
 		  try {
-			getLaVentanaAct_().getLaRefZonaTrabajo_().getVecVentanas_().lastElement().setSelected(true);
+			getLaVentana_().getLaRefZonaTrabajo_().getVecVentanas_().lastElement().setSelected(true);
 		  } catch (PropertyVetoException e) {
 			e.printStackTrace();
 		  }
