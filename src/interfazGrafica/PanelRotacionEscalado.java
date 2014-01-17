@@ -300,6 +300,7 @@ public class PanelRotacionEscalado extends JDialog {
 		public void actionPerformed(ActionEvent arg0) {
 		  if (getElBotonEscalado_().isSelected()) {
 		    getElBotonRotacion_().setSelected(false);
+		    getElBotonRotarPintar_().setEnabled(false);
 		    getElSliderGrados_().setEnabled(false);
 			getElSliderX_().setEnabled(true);
 			getElSliderY_().setEnabled(true);
@@ -320,7 +321,8 @@ public class PanelRotacionEscalado extends JDialog {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 		  if (getElBotonRotacion_().isSelected()) {
-		    getElBotonEscalado_().setSelected(false); 
+		    getElBotonEscalado_().setSelected(false);
+		    getElBotonRotarPintar_().setEnabled(true);
 			getElSliderGrados_().setEnabled(true);
 			getElSliderX_().setEnabled(false);
 			getElSliderY_().setEnabled(false);
@@ -403,6 +405,7 @@ public class PanelRotacionEscalado extends JDialog {
 		   }
 		}
 	});
+    getElBotonRotarPintar_().setEnabled(false);
     add(getElBotonRotarPintar_());
     
     
@@ -447,10 +450,9 @@ public class PanelRotacionEscalado extends JDialog {
 		}
 	  });
      add(getElBotonCancelar_());
-     
-     
   
     setTitle("Panel Rotacion/Escalado.");
+    setLocation(50, 50);
     setVisible(true);
     setResizable(false);
     
