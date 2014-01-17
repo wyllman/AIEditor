@@ -248,11 +248,13 @@ public class PanelRotacionEscalado extends JDialog {
 		    getElBotonBilineal_().setSelected(false); 
 		  }
 		}
-	  });
+	});
+    getElBotonVMC_().setSelected(true);
     add(getElBotonVMC_());
     
     setElBotonBilineal_(new JRadioButton("Bilineal"));
-    getElBotonBilineal_().setLocation(2 * ANCHO_BORD + getElBotonVMC_().getWidth(), 2 * ANCHO_BORD + getElLabelInterpolacion_().getHeight());
+    getElBotonBilineal_().setLocation(2 * ANCHO_BORD + getElBotonVMC_().getWidth()
+    		                         , 2 * ANCHO_BORD + getElLabelInterpolacion_().getHeight());
     getElBotonBilineal_().setSize(110, 30);
     getElBotonBilineal_().setBorder(new LineBorder(Color.black));
     getElBotonBilineal_().addActionListener(new ActionListener() {
@@ -262,7 +264,7 @@ public class PanelRotacionEscalado extends JDialog {
 		    getElBotonVMC_().setSelected(false); 
 		  }
 		}
-	  });
+	});
     add(getElBotonBilineal_());
     
     setElLabelOperacion_(new JLabel(" Operacion:"));
@@ -280,15 +282,16 @@ public class PanelRotacionEscalado extends JDialog {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 		  if (getElBotonEscalado_().isSelected()) {
-		    getElBotonRotacion_().setSelected(false); 
+		    getElBotonRotacion_().setSelected(false);
+		    getElSliderGrados_().setEnabled(false);
 			getElSliderX_().setEnabled(true);
 			getElSliderY_().setEnabled(true);
 		  } else {
-			getElSliderX_().setEnabled(false);
-			getElSliderY_().setEnabled(false);
+			getElBotonEscalado_().setSelected(true);
 		  }
 		}
-	  });
+	});
+    getElBotonEscalado_().setSelected(true);
     add(getElBotonEscalado_());
     
     setElBotonRotacion_(new JRadioButton("Rotacion"));
@@ -302,8 +305,10 @@ public class PanelRotacionEscalado extends JDialog {
 		  if (getElBotonRotacion_().isSelected()) {
 		    getElBotonEscalado_().setSelected(false); 
 			getElSliderGrados_().setEnabled(true);
+			getElSliderX_().setEnabled(false);
+			getElSliderY_().setEnabled(false);
 		  } else {
-			getElSliderGrados_().setEnabled(false);
+			getElBotonRotacion_().setSelected(true);
 		  }
 		}
 	  });
@@ -324,7 +329,7 @@ public class PanelRotacionEscalado extends JDialog {
     getElSliderX_().setPaintTicks(true);
     getElSliderX_().setPaintLabels(true);
     getElSliderX_().setBorder(new LineBorder(Color.black));
-    getElSliderX_().setEnabled(false);
+    getElSliderX_().setEnabled(true);
     add(getElSliderX_());
     
     setElLabelY_(new JLabel(" Y: "));
@@ -343,7 +348,7 @@ public class PanelRotacionEscalado extends JDialog {
     getElSliderY_().setPaintTicks(true);
     getElSliderY_().setPaintLabels(true);
     getElSliderY_().setBorder(new LineBorder(Color.black));
-    getElSliderY_().setEnabled(false);
+    getElSliderY_().setEnabled(true);
     add(getElSliderY_());
     
     setElLabel_Grados(new JLabel(" Gr: "));
@@ -369,11 +374,21 @@ public class PanelRotacionEscalado extends JDialog {
     getElBotonRotarPintar_().setLocation(getElLabel_Grados().getX()
     		                             , getElLabel_Grados().getY() + getElLabel_Grados().getHeight() + ANCHO_BORD);
     getElBotonRotarPintar_().setSize(110, 50);
+    getElBotonRotarPintar_().addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		   if (getElBotonRotarPintar_().isSelected()) {
+		      getElBotonBilineal_().setEnabled(false);
+		      getElBotonVMC_().setEnabled(false);
+		   } else {
+			  getElBotonBilineal_().setEnabled(true);
+			  getElBotonVMC_().setEnabled(true);
+		   }
+		}
+	});
     add(getElBotonRotarPintar_());
     
     
-    
-     
      setElBotonAceptar_(new JButton("Aceptar"));
      getElBotonAceptar_().setLocation(getWidth() - (2 * 75 + 2 * ANCHO_BORD)
     		                         , getElBotonRotarPintar_().getY() + getElBotonRotarPintar_().getHeight() + ANCHO_BORD);
@@ -405,8 +420,7 @@ public class PanelRotacionEscalado extends JDialog {
      add(getElBotonCancelar_());
      
      
-    
-
+  
     setTitle("Panel Rotacion/Escalado.");
     setVisible(true);
     setResizable(false);
