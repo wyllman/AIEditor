@@ -14,6 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
+import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -58,41 +59,17 @@ public class PanelRotacionEscalado extends JDialog {
   public void setElBotonEscalado_(JRadioButton escalado_) {
 	this.escalado_ = escalado_;
   }
-  public JLabel getElLabelEscalado_() {
-	return elLabelEscalado_;
-  }
-  public void setElLabelEscalado_(JLabel elLabelEscalado_) {
-	this.elLabelEscalado_ = elLabelEscalado_;
-  }
   public JRadioButton getElBotonVMC_() {
 	return elBotonVMC_;
   }
   public void setElBotonVMC_(JRadioButton vMC_) {
 	this.elBotonVMC_ = vMC_;
   }
-  public JLabel getElLabelVMC_() {
-	return elLabelVMC_;
-  }
-  public void setElLabelVMC_(JLabel elLabelVMC_) {
-	this.elLabelVMC_ = elLabelVMC_;
-  }
   public JRadioButton getElBotonBilineal_() {
 	return bilineal_;
   }
   public void setElBotonBilineal_(JRadioButton bilineal_) {
 	this.bilineal_ = bilineal_;
-  }
-  public JLabel getElLabelBilineal_() {
-	return elLabelBilineal_;
-  }
-  public void setElLabelBilineal_(JLabel elLabelBilineal_) {
-	this.elLabelBilineal_ = elLabelBilineal_;
-  }
-  public int getElValorX_() {
-	return elValorX_;
-  }
-  public void setElValorX_(int elValorX_) {
-	this.elValorX_ = elValorX_;
   }
   public JLabel getElLabelX_() {
 	return elLabelX_;
@@ -105,12 +82,6 @@ public class PanelRotacionEscalado extends JDialog {
   }
   public void setElSliderX_(JSlider elSliderX_) {
 	this.elSliderX_ = elSliderX_;
-  }
-  public int getElValorY_() {
-	return elValorY_;
-  }
-  public void setElValorY_(int elValorY_) {
-	this.elValorY_ = elValorY_;
   }
   public JLabel getElLabelY_() {
 	return elLabelY_;
@@ -135,12 +106,6 @@ public class PanelRotacionEscalado extends JDialog {
   }
   public void setElLabelRotacion_(JLabel elLabelRotacion_) {
 	this.elLabelRotacion_ = elLabelRotacion_;
-  }
-  public int getElValorGrados_() {
-	return elValorGrados_;
-  }
-  public void setElValorGrados_(int elValorGrados_) {
-	this.elValorGrados_ = elValorGrados_;
   }
   public JLabel getElLabel_Grados() {
 	return elLabel_Grados;
@@ -178,12 +143,6 @@ public class PanelRotacionEscalado extends JDialog {
   public void setElBotonRotarPintar_(JRadioButton rotarPintar_) {
 	this.rotarPintar_ = rotarPintar_;
   }
-  public JLabel getElLabelRotarPintar_() {
-	return elLabelRotarPintar_;
-  }
-  public void setElLabelRotarPintar_(JLabel elLabelRotarPintar_) {
-	this.elLabelRotarPintar_ = elLabelRotarPintar_;
-  }
   public VentanaInterna getLaVentana_() {
 	return laVentana_;
   }
@@ -196,6 +155,24 @@ public class PanelRotacionEscalado extends JDialog {
   public void setLasHerramientas_(Geometria lasHerramientas_) {
 	this.lasHerramientas_ = lasHerramientas_;
   }
+  public JTextField getLaInfoSliderX_() {
+	return laInfoSliderX_;
+  }
+  public void setLaInfoSliderX_(JTextField laInfoSliderX_) {
+	this.laInfoSliderX_ = laInfoSliderX_;
+  }
+  public JTextField getLaInfoSliderY_() {
+	return laInfoSliderY_;
+  }
+  public void setLaInfoSliderY_(JTextField laInfoSliderY_) {
+	this.laInfoSliderY_ = laInfoSliderY_;
+  }
+  public JTextField getLaInfoSliderGrados_() {
+	return laInfoSliderGrados_;
+  }
+  public void setLaInfoSliderGrados_(JTextField laInfoSliderGrados_) {
+	this.laInfoSliderGrados_ = laInfoSliderGrados_;
+  }
   //-FIN-------------------
 
   //____________________
@@ -204,34 +181,28 @@ public class PanelRotacionEscalado extends JDialog {
   private VentanaInterna laVentana_;
   private Geometria lasHerramientas_;
 
-
-
   private JLabel elLabelInterpolacion_;
   private JRadioButton elBotonVMC_;
-  private JLabel elLabelVMC_;
   private JRadioButton bilineal_;
-  private JLabel elLabelBilineal_;
   private JRadioButton rotarPintar_;
-  private JLabel elLabelRotarPintar_;
-  
+
   private JLabel elLabelOperacion_;
   private JRadioButton escalado_;
-  private JLabel elLabelEscalado_;
   
-  private int elValorX_;
   private JLabel elLabelX_;
   private JSlider elSliderX_;
+  private JTextField laInfoSliderX_;
   
-  private int elValorY_;
   private JLabel elLabelY_;
   private JSlider elSliderY_;
+  private JTextField laInfoSliderY_;
 
   private JRadioButton rotacion_;
   private JLabel elLabelRotacion_;
   
-  private int elValorGrados_;
   private JLabel elLabel_Grados;
   private JSlider elSliderGrados_;
+  private JTextField laInfoSliderGrados_;
   
   private JButton aceptar_;
   private JButton cancelar_;
@@ -242,7 +213,7 @@ public class PanelRotacionEscalado extends JDialog {
   // MŽtodos privados:
   private void inicializar () {
 	setLayout(null);
-	setSize(525, 260);
+	setSize(625, 220);
 	setLasHerramientas_(new Geometria());
 	
 	setElLabelInterpolacion_(new JLabel(" Interpolacion: "));
@@ -339,17 +310,33 @@ public class PanelRotacionEscalado extends JDialog {
     getElLabelX_().setBorder(new LineBorder(Color.black));
     add(getElLabelX_());
     
-    setElSliderX_(new JSlider(JSlider.HORIZONTAL, 0, 200, 127));
+    setElSliderX_(new JSlider(JSlider.HORIZONTAL, 1, 501, 100));
     getElSliderX_().setLocation(getElLabelX_().getX() + getElLabelX_().getWidth() + 1
                , getElLabelX_().getY());
     getElSliderX_().setSize(224, 50);
-    getElSliderX_().setMajorTickSpacing(125);
-    getElSliderX_().setMinorTickSpacing(Math.round(125 / 5));
+    getElSliderX_().setMajorTickSpacing(250);
+    getElSliderX_().setMinorTickSpacing(50);
     getElSliderX_().setPaintTicks(true);
-    getElSliderX_().setPaintLabels(true);
+    getElSliderX_().setPaintLabels(false);
     getElSliderX_().setBorder(new LineBorder(Color.black));
     getElSliderX_().setEnabled(true);
+    getElSliderX_().addChangeListener(new ChangeListener() {
+		@Override
+		public void stateChanged(ChangeEvent arg0) {
+			getLaInfoSliderX_().setText(String.valueOf(getElSliderX_().getValue() / 100.0));
+		}
+	});
     add(getElSliderX_());
+    
+    setLaInfoSliderX_(new JTextField());
+    getLaInfoSliderX_().setLocation(getElSliderX_().getX() + getElSliderX_().getWidth() + 1
+    		                       , getElSliderX_().getY());
+    getLaInfoSliderX_().setSize(50, 50);
+    getLaInfoSliderX_().setText(String.valueOf(getElSliderX_().getValue() / 100.0));
+    getLaInfoSliderX_().setEditable(false);
+    add(getLaInfoSliderX_());
+    
+    
     
     setElLabelY_(new JLabel(" Y: "));
     getElLabelY_().setLocation(ANCHO_BORD, getElLabelX_().getY() + getElLabelX_().getHeight() + ANCHO_BORD);
@@ -357,37 +344,64 @@ public class PanelRotacionEscalado extends JDialog {
     getElLabelY_().setBorder(new LineBorder(Color.black));
     add(getElLabelY_());
     
-    
-    setElSliderY_(new JSlider(JSlider.HORIZONTAL, 0, 200, 127));
+    setElSliderY_(new JSlider(JSlider.HORIZONTAL, 1, 501, 100));
     getElSliderY_().setLocation(getElLabelY_().getX() + getElLabelY_().getWidth() + 1
   		                          , getElLabelY_().getY());
     getElSliderY_().setSize(224, 50);
-    getElSliderY_().setMajorTickSpacing(125);
-    getElSliderY_().setMinorTickSpacing(Math.round(125 / 5));
+    getElSliderY_().setMajorTickSpacing(250);
+    getElSliderY_().setMinorTickSpacing(50);
     getElSliderY_().setPaintTicks(true);
-    getElSliderY_().setPaintLabels(true);
+    getElSliderY_().setPaintLabels(false);
     getElSliderY_().setBorder(new LineBorder(Color.black));
     getElSliderY_().setEnabled(true);
+    getElSliderY_().addChangeListener(new ChangeListener() {
+		@Override
+		public void stateChanged(ChangeEvent arg0) {
+			getLaInfoSliderY_().setText(String.valueOf(getElSliderY_().getValue() / 100.0));
+		}
+	});
     add(getElSliderY_());
     
+    setLaInfoSliderY_(new JTextField());
+    getLaInfoSliderY_().setLocation(getElSliderY_().getX() + getElSliderY_().getWidth() + 1
+    		                       , getElSliderY_().getY());
+    getLaInfoSliderY_().setSize(50, 50);
+    getLaInfoSliderY_().setText(String.valueOf(getElSliderY_().getValue() / 100.0));
+    getLaInfoSliderY_().setEditable(false);
+    add(getLaInfoSliderY_());
+    
     setElLabel_Grados(new JLabel(" Gr: "));
-    getElLabel_Grados().setLocation(getElSliderX_().getX() + getElSliderX_().getWidth() + ANCHO_BORD
-    		                       , getElSliderX_().getY());
+    getElLabel_Grados().setLocation(getLaInfoSliderX_().getX() + getLaInfoSliderX_().getWidth() + ANCHO_BORD
+    		                       , getLaInfoSliderX_().getY());
     getElLabel_Grados().setSize(30, 50);
     getElLabel_Grados().setBorder(new LineBorder(Color.black));
     add(getElLabel_Grados());
     
-    setElSliderGrados_(new JSlider(JSlider.HORIZONTAL, 0, 360, 127));
+    setElSliderGrados_(new JSlider(JSlider.HORIZONTAL, 0, 3600, 0));
     getElSliderGrados_().setLocation(getElLabel_Grados().getX() + getElLabel_Grados().getWidth() + 1
   		                          , getElLabel_Grados().getY());
     getElSliderGrados_().setSize(224, 50);
-    getElSliderGrados_().setMajorTickSpacing(250);
-    getElSliderGrados_().setMinorTickSpacing(Math.round(250 / 5));
+    getElSliderGrados_().setMajorTickSpacing(900);
+    getElSliderGrados_().setMinorTickSpacing(225);
     getElSliderGrados_().setPaintTicks(true);
-    getElSliderGrados_().setPaintLabels(true);
+    getElSliderGrados_().setPaintLabels(false);
     getElSliderGrados_().setBorder(new LineBorder(Color.black));
     getElSliderGrados_().setEnabled(false);
+    getElSliderGrados_().addChangeListener(new ChangeListener() {
+		@Override
+		public void stateChanged(ChangeEvent arg0) {
+			getLaInfoSliderGrados_().setText(String.valueOf(getElSliderGrados_().getValue() / 10.0));
+		}
+	});
     add(getElSliderGrados_());
+    
+    setLaInfoSliderGrados_(new JTextField());
+    getLaInfoSliderGrados_().setLocation(getElSliderGrados_().getX() + getElSliderGrados_().getWidth() + 1
+    		                            , getElSliderGrados_().getY());
+    getLaInfoSliderGrados_().setSize(50, 50);
+    getLaInfoSliderGrados_().setText(String.valueOf(getElSliderGrados_().getValue() / 10.0));
+    getLaInfoSliderGrados_().setEditable(false);
+    add(getLaInfoSliderGrados_());
     
     setElBotonRotarPintar_(new JRadioButton("Rotar/Pintar"));
     getElBotonRotarPintar_().setLocation(getElLabel_Grados().getX()
@@ -411,7 +425,7 @@ public class PanelRotacionEscalado extends JDialog {
     
      setElBotonAceptar_(new JButton("Aceptar"));
      getElBotonAceptar_().setLocation(getWidth() - (2 * 75 + 2 * ANCHO_BORD)
-    		                         , getElBotonRotarPintar_().getY() + getElBotonRotarPintar_().getHeight() + ANCHO_BORD);
+    		                         , getElBotonRotarPintar_().getY() );
      getElBotonAceptar_().setSize(75, 50);
      getElBotonAceptar_().addActionListener(new ActionListener() {
 		@Override
@@ -421,7 +435,7 @@ public class PanelRotacionEscalado extends JDialog {
 					                                             , getElSliderY_().getValue()
 					                                             , getLaVentana_().imagenActiva()));
 		  } else if (getElBotonRotacion_().isSelected()) {
-		      setLaImagenResultado_(getLasHerramientas_().rotar(getElSliderGrados_().getValue()
+		      setLaImagenResultado_(getLasHerramientas_().rotar(getElSliderGrados_().getValue() / 10.0
 		    		                                           , getElBotonRotarPintar_().isSelected()
 		    		                                           , getLaVentana_().imagenActiva()));
 		  }
